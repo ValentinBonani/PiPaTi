@@ -51,9 +51,7 @@ public class jugarActivity extends AppCompatActivity {
     int puntajeCPU = 0;
     int numeroJuagada;
     int queElegi = NOELIGIO;
-    int queEligioCPU = NOELIGIO;
-    int resultadoJugado = NOJUGO;
-    int resultadoPartida = NOJUGO;
+    //xdxd
 
     String historial[];
     private int[] imagenes = {R.drawable.piedra, R.drawable.papel, R.drawable.tijera};
