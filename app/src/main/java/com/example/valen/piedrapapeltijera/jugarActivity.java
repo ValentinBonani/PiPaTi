@@ -23,6 +23,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class jugarActivity extends AppCompatActivity {
+    //hola mundo!
     ImageView imgJugador;
     ImageView imgCPU;
     ImageView simbolo;
