@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.For20Games.piedrapapeltijera">
+    package="com.example.valen.piedrapapeltijera">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:roundIcon="@drawable/fondonegro"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-            android:name=".jugarActivity"
+        <activity android:name=".jugarActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,12 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Historial"
+        <activity android:name=".Historial"
+            android:theme="@style/AppTheme2"
             android:label="Piedra papel o tijera"
-            android:theme="@style/AppTheme2" />
-        <activity android:name="com.example.valen.piedrapapeltijera.LogInActivity" />
-        <activity android:name="com.example.valen.piedrapapeltijera.SignUpActivity"></activity>
+            >
+        </activity>
+
     </application>
 
 </manifest>
