@@ -24,7 +24,6 @@ import java.util.TimerTask;
 
 public class jugarActivity extends AppCompatActivity {
     //hola mundo!
-    //valem paki
     ImageView imgJugador;
     ImageView imgCPU;
     ImageView simbolo;
