@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- <ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >-->
+
+
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/backgroundland"
+    android:id="@+id/linearLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:background="@color/gano"
+        android:textColor="@color/colorAccent"
+        android:id="@+id/barraResultado"
+        android:layout_marginBottom="5dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ultimas partidas:"
+        android:textColor="@color/colorAccent"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_marginBottom="5dp"/>
+
+    <!-- <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="#000"
+        android:textColor="#FF8C00"
+        android:onClick="borrarHistorial"
+        android:text="Borrar Historial" /> -->
+
+</LinearLayout>
+    <!--</ScrollView>-->
