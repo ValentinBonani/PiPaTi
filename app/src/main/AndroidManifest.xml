@@ -9,6 +9,7 @@
         android:roundIcon="@drawable/fondonegro"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
             android:name=".jugarActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
