@@ -5,13 +5,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.GridLayout;
 import android.widget.ImageView;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,10 +20,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 
-public class jugarActivity extends AppCompatActivity {
+public class InvitadoActivity extends AppCompatActivity {
+
     ImageView imgJugador;
     ImageView imgCPU;
     ImageView simbolo;
@@ -60,6 +55,7 @@ public class jugarActivity extends AppCompatActivity {
     int resultadoPartida = NOJUGO;
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
+    String name;
 
     String historial[];
     private int[] imagenes = {R.drawable.piedra, R.drawable.papel, R.drawable.tijera};
@@ -68,7 +64,15 @@ public class jugarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jugar);
+        setContentView(R.layout.activity_jugar_amigo);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        name = user.getDisplayName();
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("valentin");
+
+
         imgJugador = findViewById(R.id.eleccionJugador);
         imgCPU = findViewById(R.id.eleccionCPU);
         simbolo = findViewById(R.id.simboloJugada);
@@ -92,13 +96,16 @@ public class jugarActivity extends AppCompatActivity {
     }
 
     /* Procedimienta para saber quien gano en cada jugada */
-    private void quienGana(int jugador, int cpu) {
+    private void quienGana(int jugador,int cpu) {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("partidas");
+        DatabaseReference myRef = database.getReference("valentin");
         String jugadaString = "Jugada " + String.valueOf(numeroJuagada);
-        myRef.child("partidaContraMaquina").child(jugadaString).child("queJugueYo").setValue(jugador);
-        myRef.child("partidaContraMaquina").child(jugadaString).child("queJugueCPU").setValue(cpu);
+        myRef.child(jugadaString).child("queJugoJugador2").setValue(jugador);
+
+
+
+
         numeroJuagada++;
         jugada.setText("Jugada " + String.valueOf(numeroJuagada));
         if ((cpu == PIEDRA && jugador == PAPEL) || (cpu == PAPEL && jugador == TIJERA) || (cpu == TIJERA && jugador == PIEDRA)) {
@@ -115,9 +122,9 @@ public class jugarActivity extends AppCompatActivity {
         queElegi = PIEDRA;
         imgJugador.setImageResource(imagenes[PIEDRA]);
         int cpu = jugadaMaquina();
-        imgCPU.setImageResource(imagenes[cpu]);
         queEligioCPU = cpu;
-        quienGana(PIEDRA, cpu);
+        imgCPU.setImageResource(imagenes[cpu]);
+        quienGana(PIEDRA,cpu);
         imgCPU.setVisibility(View.VISIBLE);
         imgJugador.setVisibility(View.VISIBLE);
     }
